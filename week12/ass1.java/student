@@ -1,37 +1,21 @@
+class Student {
 
-public class Student {
-	private String name;
-	private int indexNo;
-	private int age;
-	
+    String name;
 
-	public String getName() {
-		return name;
-	}
+    int indexNo;
+
+    int age;
 
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
+    public Student(String name, int indexNo, int age) {
 
-	public int getIndexNo() {
-		return indexNo;
-	}
+        this.name = name;
 
+        this.indexNo = indexNo;
 
-	public void setIndexNo(int indexNo) {
-		this.indexNo = indexNo;
-	}
+        this.age = age;
 
-
-	public int getAge() {
-		return age;
-	}
-
-
-	public void setAge(int age) {
-		this.age = age;
-	}
+    }
 
 }
