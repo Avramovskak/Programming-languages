@@ -1,50 +1,56 @@
 
 import java.util.List;
+
 import java.util.Random;
+
 import java.util.stream.Collectors;
+
+
 
 public class Demo {
 
-	
-
-	    public static void printValues(Student s) {
-
-	        System.out.println("Name: " + s.getName());
-
-	        System.out.println("IndexNo: " + s.getIndexNo());
-
-	        System.out.println("Age: " + s.getAge());
 
 
-	    }
+    public static Student createStudent(String name, int indexNo) {
 
-	    public static Student createStudent(String name, int indexNo, int age) {
+        Random random = new Random();
 
-	        return new Student();
+        int age = random.nextInt(13) + 18; // Generates random age between 18 and 30
 
-	            
-	    }
+        return new Student(name, indexNo, age);
+
+    }
 
 
 
+    public static void printValues(Student s) {
+
+        System.out.println("Name: " + s.name);
+
+        System.out.println("Index Number: " + s.indexNo);
+
+        System.out.println("Age: " + s.age);
+
+        System.out.println();
+
+    }
 
 
-		public static void main(String[] args) {
 
-	        List<String> names = List.of("Marija", "Marko", "Ivan", "Sandra", "Simona");
+    public static void main(String[] args) {
+
+        List<String> names = List.of("Marija", "Ivan", "Sandra", "Emil", "Marko");
 
 
-	        Random random = new Random();
 
-	        List<Student> students = names.stream()
+        List<Student> students = names.stream()
 
-	                .map(name -> createStudent(name, random.nextInt(10000), random.nextInt(13) + 18))
+                .map(name -> createStudent(name, new Random().nextInt(10000) + 1))
 
-	                .collect(Collectors.toList());
+                .collect(Collectors.toList());
 
-	        students.forEach(Demo::printValues);
+        students.forEach(Demo::printValues);
 
-	    }
+    }
 
-	}
-	
+}
