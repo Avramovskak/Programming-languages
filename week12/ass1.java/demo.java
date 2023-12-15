@@ -15,7 +15,7 @@ public class Demo {
 
         Random random = new Random();
 
-        int age = random.nextInt(13) + 18; // Generates random age between 18 and 30
+        int age = random.nextInt(13) + 18; 
 
         return new Student(name, indexNo, age);
 
