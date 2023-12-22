@@ -1,60 +1,34 @@
+
 import java.util.Scanner;
 
 public class TextProcessor {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-      
-        do {
-            System.out.print("Input the text. To finish inputing (input END): ");
-            String text = scanner.nextLine();
+        try {
+            String inputText;
 
-            if (text.equals("END")) {
-                break;
-            }
+            do {
+                System.out.print("Input the text. To finish inputting, input END: ");
+                inputText = scanner.nextLine().trim();
 
-            int length = text.length();
-            int weight = calculateWeight(text);
+                if (!inputText.equalsIgnoreCase("END")) {
+                    int charCount = inputText.length();
+                    int weight = calculateWeight(inputText);
 
-            System.out.println( text + "has " + length + "characters and  its weight is " + weight );
-            
-        } while (true);
+                    System.out.println(inputText + " has " + charCount + " characters, and its weight is " + weight);
+                }
+            } while (!inputText.equalsIgnoreCase("END"));
 
-      
-        while (true) {
-            System.out.print("Input the text. To finish inputing (input END): ");
-            String text = scanner.nextLine();
+            System.out.println("Thank you for using the program.");
 
-            if (text.equals("END")) {
-                break;
-            }
-
-            int length = text.length();
-            int weight = calculateWeight(text);
-
-            System.out.println( text + "has " + length + "characters and  its weight is " + weight );
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            scanner.close();
         }
-
-      
-        while (true) {
-            System.out.print("Input the text. To finish inputing (input END): ");
-            String text = scanner.nextLine();
-
-            if (text.equals("END")) {
-                break;
-            }
-
-            
-            int length = text.length();
-            int weight = calculateWeight(text);
-
-            System.out.println( text + "has " + length + "characters and  its weight is " + weight );
-        }
-
-        scanner.close();
     }
 
-    
     private static int calculateWeight(String text) {
         int weight = 0;
         for (char c : text.toCharArray()) {
@@ -63,3 +37,4 @@ public class TextProcessor {
         return weight;
     }
 }
+
